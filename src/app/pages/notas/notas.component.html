@@ -1,0 +1,34 @@
+<div>
+
+    <div class="top-bar">
+        <h1>Mis Notas</h1>
+    </div>
+
+    <div class="paginaContent">
+
+        <form [formGroup]="form" (ngSubmit)="crear()">
+            <li>
+                <label>Titulo</label>
+                <input type="text" class="titulo" formControlName="titulo" required="true"> 
+    
+                <label>Estado</label> 
+                <select name="miselect" class="selectBox" type="select" formControlName="estado" >
+                    <option class="opciones" selected disabled>Seleccione</option>
+                        <option value="inicio">Iniciado</option>
+                        <option value="proceso">En Proceso</option>
+                        <option value="termino">Terminado</option>
+                </select>
+
+                <label>Descripción</label> 
+                <textarea class="form-control" id="floatingTextarea" formControlName="descripcion" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis magna id convallis commodo. Nam tempor tellus lorem, ut varius dolor auctor et."></textarea>
+            </li>
+    
+            <li class="boton">        
+                <button type="submit" [disabled]="titulo.invalid"  [disabled]="estado.invalid" [routerLink]="['/lista-notas']" routerLinkActive="router-link-active"  >Actualizar</button>
+            </li>
+
+        </form>
+
+    </div>
+    
+</div>
